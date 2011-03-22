@@ -1,0 +1,22 @@
+%v seznam damo skoraj karkoli
+[a,b,c]
+[A,B,C]
+[]
+[pi,PI,3.14,4,[pi],[pi,[PI]],[[]],pi(PI,3.14)]
+
+%funktor .
+%drevo head, tail...
+%.(a,.(b,.(c,[]))) = [a,b,c]
+
+%razstavljanja,sestavljanje seznamov
+L=[a,b,c],L=[Head|Tail].
+H=a,T=[b,c],L=[H|T].
+
+%min dolžina
+[H1,H2,H3|T]%vsaj 3, tail je lahko prazen
+
+%list.pl ... bomo zdj redno uporabljal
+member1(X,L)
+conc(L1,L2,L)
+insert(X,L,L1)
+delete(X,L,L1)
