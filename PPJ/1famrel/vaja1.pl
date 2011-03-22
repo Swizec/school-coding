@@ -78,3 +78,45 @@ connected1(X, Y) :-
 %debuganje:
 %trace
 %notrace
+
+
+%vaje2 
+%connected, ki se ne zacikla
+connected2(X, Y, _Depth) :-
+    parent(X, Y)
+    ;
+    parent(Y, X).
+    
+connected2(X, Y, Depth) :-
+    Depth > 0,
+    Depth1 is Depth - 1,
+    (parent(X,Z)
+     ;
+     parent(Z,X),
+    connected2(Z,Y,Depth1)).
+
+%connected s shranjeno potjo%%%%
+connected3(X, Y, _Depth, Path) :-
+    parent(X, Y), Path=parent(X,Y);
+    parent(Y, X), Path=child(X,Y).
+
+connected3(X, Y, Depth, Path) :-
+    Depth > 0, Depth1 is Depth - 1,
+    (parent(X,Z), Path=parent(X,PathZY);
+     parent(Z,X), Path=child(X,PathZY)),
+     connected3(Z,Y,Depth1,PathZY).
+     
+%to zgoraj se splača tracat.
+%skrajšana verzija
+    %napišemo Path=... kar v glavo.
+connected4(X, Y, _Depth, parent(X,Y)) :-
+    parent(X,Y).
+connected4(X, Y, _Depth, child(X,Y)) :-
+    parent(Y, X).
+
+connected4(X, Y, Depth, Path) :-
+    Depth > 0, Depth1 is Depth - 1,
+    (parent(X,Z), Path=parent(X,PathZY);
+     parent(Z,X), Path=child(X,PathZY)),
+     connected3(Z,Y,Depth1,PathZY).
+
