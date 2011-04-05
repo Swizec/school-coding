@@ -12,6 +12,19 @@ insert(X,L,[X|L]).
 insert(X,[H|T],[H|LL]) :-
 	insert(X,T,LL).
 	    
-delete(X,[X|T],T).
-delete(X,[H|T],[H|LL]) :-
-    delete(X,T,LL).
+del(X,[X|T],T).
+del(X,[H|T],[H|LL]) :-
+    del(X,T,LL).
+    
+member2(X,L) :-
+	 conc(_,[X|_],L).
+
+insert2(X,L1,L2) :-
+    del(X,L2,L1).
+    
+member3(X,L) :-
+    del(X,L,_).
+    
+sublist(L,S) :-
+    conc(_,LL,L),
+    conc(S,_,LL).
