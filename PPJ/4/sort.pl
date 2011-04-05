@@ -48,7 +48,7 @@ bubblesort([A,B],[A,B]) :- A =< B.
 bubblesort([A,B],[B,A]) :- A > B.
 bubblesort([H1,H2|T],[H1,H2|ST]) :-
     H1 =< H2,
-    bubblesort([H2|T],[H2|ST]).    
+    bubblesort([H2|T],[H2|ST]).
 bubblesort([H1,H2|T],[HS2,HS1|TS]) :-
     H1 > H2,
     bubblesort([H1|T],[H1|TS]).
