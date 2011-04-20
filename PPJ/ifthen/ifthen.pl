@@ -9,8 +9,8 @@ if(A then B else C):-
 if(A then B):- 
     A,!,B.
          
-:- op(200, yfx, else).
-:- op(300, yfx, then).
-:- op(500, fy, if).
+:- op(500, yfx, else).
+:- op(600, yfx, then).
+:- op(700, fy, if).
 
 
